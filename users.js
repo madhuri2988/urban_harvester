@@ -29,7 +29,7 @@ function UsersDAO(db) {
             city, state, zipcode, phoneNumber, company_website_address,
             daily_contact_name, daily_email_address, daily_phoneNumber,
             receiver_Hotmeals, receiver_Sackmeals, receiver_perishableGoods,
-            receiver_dryGoods, receiver_accept_shopping_cart_food,
+            receiver_dryGoods, receiver_accept_shopping_cart_food,drygrocery,perishablegrocery,
             re_heating_food, receiver_days_of_week, receiver_earliest_pickUpTime,
             receiver_latest_pickUpTime, receiver_refrigerator, receiver_freezer,
             receiver_pickUp_locally, receiver_message,food_recovery_type, callback) {
@@ -61,6 +61,7 @@ function UsersDAO(db) {
             'food_recovery_type':food_recovery_type,
             'receiver':{'HotMeals_required': receiver_Hotmeals, 'SackMeals_required': receiver_Sackmeals,
                 'perishableGoods_required': receiver_perishableGoods, 'dryGoods_required': receiver_dryGoods,
+                'drygrocery':drygrocery,'perishablegrocery':perishablegrocery,
                 'PreparedFood_reheating': re_heating_food, 'Max_shoppingCartFood_accept': receiver_accept_shopping_cart_food,
                 'days_of_week_acceptFood':receiver_days_of_week, 'earliest_ReceivingTime':receiver_earliest_pickUpTime,
                 'latest_ReceivingTime':receiver_latest_pickUpTime, 'have_refrigerator':receiver_refrigerator,

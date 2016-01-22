@@ -401,6 +401,8 @@ function SessionHandler(db) {
                     receiver_perishableGoods = req.body.bags_perishables;
                     receiver_dryGoods = req.body.bags_dryGoods;
                     var re_heating_food = req.body.reheating;
+                    var drygrocery = req.body.drygrocery;
+                    var perishablegrocery = req.body.perishablegrocery;
                     var receiver_accept_shopping_cart_food = req.body.receiver_shopping_carts;
                     var receiver_days_of_week = req.body.receiver_days_of_week;
                     var receiver_earliest_pickUpTime = req.body.receiver_earliest_pickUpTime;
@@ -418,7 +420,7 @@ function SessionHandler(db) {
                                 city, state, zipcode, phoneNumber, company_website_address,
                                 daily_contact_name, daily_email_address, daily_phoneNumber,
                                 receiver_Hotmeals, receiver_Sackmeals, receiver_perishableGoods,
-                                receiver_dryGoods, receiver_accept_shopping_cart_food,
+                                receiver_dryGoods, receiver_accept_shopping_cart_food,drygrocery,perishablegrocery,
                                 re_heating_food, receiver_days_of_week, receiver_earliest_pickUpTime,
                                 receiver_latest_pickUpTime, receiver_refrigerator, receiver_freezer,
                                 receiver_pickUp_locally, receiver_message,food_recovery_type, function (err, user) {

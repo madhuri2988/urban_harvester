@@ -72,7 +72,7 @@
                     <form class="form-horizontal" method ="POST">
                         <h5>*1. Please enter your company information</h5>
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Administrative Contact:</label>
+                            <label for="name" class="col-sm-2 control-label">Administrative User Id:</label>
                             <div class="col-sm-4">
                                 <input type="text" name="username" class="form-control" style="padding: 15px;" value = "{{username}}"placeholder="type your name here.." >
                             	<span class ="error"> {{username_error}}</span> 
@@ -146,7 +146,7 @@
 			     </div>
                         </div>
                         <div class="form-group">
-                            <h5>2. What is your company's website address?</h5>
+                            <h5>2. What is your company's email Id?</h5>
                             <div class="col-sm-4">
                                 <input type="text" name="company_website" class="form-control" style="padding: 15px;" placeholder="type your Website url here.." >
                                 <span class ="error"> {{company_website_address_error}}</span>
@@ -306,6 +306,32 @@
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control" style="padding: 15px;" name="bags_dryGoods" placeholder="enter value here..">
                                     <span class ="error"> {{receiver_bags_dryGoods_error}} </span>
+                                </div>
+                            </div>
+                             <div class="container">
+                                <div class="form-group">
+                                    <label for="gender" class="col-sm-2 control-label">Can you accept non-perishable grocery - Dry</label>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" class="donor" name="drygrocery"  value="Yes"> Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" class="donor" name="drygrocery"  value="No"> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="container">
+                                <div class="form-group">
+                                    <label for="gender" class="col-sm-2 control-label">Can you accept perishable Grocery</label>
+                                    <div class="col-sm-6">
+                                        <label class="radio-inline">
+                                            <input type="radio" class="donor" name="perishablegrocery"  value="Yes"> Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" class="donor" name="perishablegrocery"  value="No"> No
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="container">
