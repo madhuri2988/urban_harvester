@@ -49,7 +49,9 @@ app.get('/login', sessionHandler.displayLoginPage);
    
  app.post('/login', sessionHandler.handleLoginRequest);
 
+   app.post('/itemlist', sessionHandler.handleInsertInventoryItem);
    
+ app.get('/itemlist', sessionHandler.handleGetInventoryItem);
 
  // Logout page
    

@@ -103,7 +103,7 @@
                             <label for="city" class="col-sm-2 control-label">State:</label>
                             <div class="col-sm-6">
                                 <select class="form-control" name="state" id="state">
-                                    <option value="">-- select state --</option>
+                                    <option value="{{state}}">-- select state --</option>
                                     <option value="AL">AL Alabama</option>
                                     <option value="AK">AK Alaska</option><option value="AS">AS American Samoa</option><option value="AZ">AZ Arizona</option><option value="AR">AR Arkansas</option><option value="CA">CA California</option><option value="CO">CO Colorado</option><option value="CT">CT Connecticut</option><option value="DE">DE Delaware</option><option value="DC">DC District of Columbia</option><option value="FM">FM Federated States of Micronesia</option><option value="FL">FL Florida</option><option value="GA">GA Georgia</option><option value="GU">GU Guam</option><option value="HI">HI Hawaii</option><option value="ID">ID Idaho</option><option value="IL">IL Illinois</option><option value="IN">IN Indiana</option><option value="IA">IA Iowa</option><option value="KS">KS Kansas</option><option value="KY">KY Kentucky</option><option value="LA">LA Louisiana</option><option value="ME">ME Maine</option><option value="MH">MH Marshall Islands</option><option value="MD">MD Maryland</option><option value="MA">MA Massachusetts</option><option value="MI">MI Michigan</option><option value="MN">MN Minnesota</option><option value="MS">MS Mississippi</option><option value="MO">MO Missouri</option><option value="MT">MT Montana</option><option value="NE">NE Nebraska</option><option value="NV">NV Nevada</option><option value="NH">NH New Hampshire</option><option value="NJ">NJ New Jersey</option><option value="NM">NM New Mexico</option><option value="NY">NY New York</option><option value="NC">NC North Carolina</option><option value="ND">ND North Dakota</option><option value="MP">MP Northern Mariana Islands</option><option value="OH">OH Ohio</option><option value="OK">OK Oklahoma</option><option value="OR">OR Oregon</option><option value="PW">PW Palau</option><option value="PA">PA Pennsylvania</option><option value="PR">PR Puerto Rico</option><option value="RI">RI Rhode Island</option><option value="SC">SC South Carolina</option><option value="SD">SD South Dakota</option><option value="TN">TN Tennessee</option><option value="TX">TX Texas</option><option value="UT">UT Utah</option><option value="VT">VT Vermont</option><option value="VI">VI Virgin Islands</option><option value="VA">VA Virginia</option><option value="WA">WA Washington</option><option value="WV">WV West Virginia</option><option value="WI">WI Wisconsin</option><option value="WY">WY Wyoming</option>
                                 </select>
@@ -127,28 +127,28 @@
                         <div class="form-group">
                             <label for="password" class="col-sm-2 control-label">Password:</label>
                             <div class="col-sm-4">
-                                <input type="password" name="password" class="form-control" style="padding: 15px;" placeholder="type your password here.." >
+                                <input type="password" name="password" class="form-control" value="{{password}}" style="padding: 15px;" placeholder="type your password here.." >
                             	<span class ="error"> {{password_error}}</span>
 			     </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="col-sm-2 control-label">Confirm-password</label>
                             <div class="col-sm-4">
-                                <input type="password" name="verify" class="form-control" style="padding: 15px;" placeholder="Re-enter your password here.." >
+                                <input type="password" name="verify" class="form-control" style="padding: 15px;" value="{{verify}}" placeholder="Re-enter your password here.." >
                            	<span class ="error"> {{verify_error}}</span>
 			    </div>
                         </div>
                         <div class="form-group">
                             <label for="text" class="col-sm-2 control-label">Phone Number:</label>
                             <div class="col-sm-4">
-                                <input type="text" name="phone_number" class="form-control" style="padding: 15px;" placeholder="type your phone number here example(111-1111-1111)..." >
+                                <input type="text" name="phone_number" class="form-control" style="padding: 15px;" value="{{phoneNumber}}"placeholder="type your phone number here example(111-1111-1111)..." >
                             	<span class ="error"> {{phoneNumber_error}}</span>
 			     </div>
                         </div>
                         <div class="form-group">
                             <h5>2. What is your company's email Id?</h5>
                             <div class="col-sm-4">
-                                <input type="text" name="company_website" class="form-control" style="padding: 15px;" placeholder="type your Website url here.." >
+                                <input type="text" name="company_website" class="form-control" style="padding: 15px;" value="{{company_website_address}}"placeholder="type your Website url here.." >
                                 <span class ="error"> {{company_website_address_error}}</span>
                             </div>
                         </div>
@@ -156,18 +156,18 @@
                             <h5>*3. Who is your daily food recovery contact?</h5>
                             <label for="text" class="col-sm-2 control-label">Daily Contact Name:</label>
                             <div class="col-sm-4">
-                                <input type="text" name="daily_contact_name" class="form-control" style="padding: 15px;" placeholder="type your contact name here.." >
+                                <input type="text" name="daily_contact_name" class="form-control" style="padding: 15px;" value="{{daily_contactName}}"placeholder="type your contact name here.." >
                                  <span class ="error"> {{daily_contactName_error}}</span>
                             </div><br><br>
                             <label for="email" class="col-sm-2 control-label">Email Address:</label>
                             <div class="col-sm-4">
-                                <input type="email" name="daily_email" class="form-control" style="padding: 15px;" placeholder="type your email here..">
+                                <input type="email" name="daily_email" class="form-control" style="padding: 15px;" value="{{daily_email_address}}" placeholder="type your email here..">
                                 <span class ="error"> {{daily_email_address_error}}</span>
        
                             </div><br><br>
                             <label for="text" class="col-sm-2 control-label">Cell/Phone Number:</label>
                             <div class="col-sm-4">
-                                <input type="text" name="daily_phone_number" class="form-control" style="padding: 15px;" placeholder="type your phone number here.." >
+                                <input type="text" name="daily_phone_number" class="form-control" style="padding: 15px;" value="{{daily_phoneNumber}}" placeholder="type your phone number here.." >
                                 <span class ="error"> {{daily_phoneNumber_error}} </span>
                             </div>
                         </div>
@@ -203,25 +203,25 @@
                                     <label for="website" class="col-sm-2 control-label">What days of the week can you deliver food donations?</label>
                                     <div class="col-sm-6">
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" name="days_of_week" value="Mon"> Mon
+                                            <input type="checkbox" name="days_of_week" value="1"> Mon
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" name="days_of_week" value="Tue"> Tue
+                                            <input type="checkbox" name="days_of_week" value="2"> Tue
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" name="days_of_week" value="Wed"> Wed
+                                            <input type="checkbox" name="days_of_week" value="3"> Wed
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" name="days_of_week" value="Thu"> Thu
+                                            <input type="checkbox" name="days_of_week" value="4"> Thu
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" name="days_of_week" value="Fri"> Fri
+                                            <input type="checkbox" name="days_of_week" value="5"> Fri
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" name="days_of_week" value="Sat"> Sat
+                                            <input type="checkbox" name="days_of_week" value="6"> Sat
                                         </label>
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" name="days_of_week" value="Sun"> Sun
+                                            <input type="checkbox" name="days_of_week" value="0"> Sun
                                         </label>
                                        
                                     </div>

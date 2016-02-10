@@ -189,12 +189,26 @@ function ContentHandler (db) {
         var users = db.collection("users");
 var givendaate=req.body.donationdate;
   var giventime= req.body.time;
+  
+ //code to convert AM/PM 12hr time to 24hr format
+  var time = giventime;
+var hours = Number(time.match(/^(\d+)/)[1]);
+var minutes = Number(time.match(/:(\d+)/)[1]);
+var AMPM = time.match(/\s(.*)$/)[1];
+if(AMPM == "PM" && hours<12) hours = hours+12;
+if(AMPM == "AM" && hours==12) hours = hours-12;
+var sHours = hours.toString();
+var sMinutes = minutes.toString();
+if(hours<10) sHours = "0" + sHours;
+if(minutes<10) sMinutes = "0" + sMinutes;
+console.log(sHours + ":" + sMinutes);
+  console.log(givendaate);
         var perishable= req.body.perishable;
   var times= giventime.split(':');
-        var date = new Date(givendaate);
-      
+        var date = new Date(req.body.donationdate);
+      console.log("**"+date);
         var todays_day = ""+date.getDay();
-        var currentMinutes=parseInt(times[0])*60+parseInt(times[1]);
+        var currentMinutes=parseInt(sHours)*60+parseInt(sMinutes);
 var coord;
  users.findOne({'_id': req.username}, validateId);
    function validateId(err, response1) {
@@ -214,6 +228,7 @@ db2.runCommand(
      near: { type: "Point", coordinates:[ coord[0],coord[1]] },
      spherical: true,
      distanceMultiplier:  0.001,
+      maxDistance: 70000,
      query: { "food_recovery_type" : "Receiver","receiver.days_of_week_acceptFood":todays_day,"receiver.earliest_ReceivingTime": { $lte: currentMinutes } , "receiver.latest_ReceivingTime": { $gte: currentMinutes }
      }},function(err,docs){
      if(err){

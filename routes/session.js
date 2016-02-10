@@ -6,7 +6,10 @@ var UsersDAO = require('../users').UsersDAO
 /*var addressValidator = require('address-validator');
 var Address = addressValidator.Address;
 var _ = require('underscore');*/
+    var mongojs = require('mongojs');
 
+
+var db2=mongojs('urban',['inventory']);
 /* The SessionHandler must be constructed with a connected db */
 function SessionHandler(db) {
     "use strict";
@@ -30,7 +33,28 @@ function SessionHandler(db) {
         "use strict";
         return res.render("login", {username: "", password: "", login_error: ""})
     }
-
+//Inventory
+    
+    this.handleInsertInventoryItem=function(req, res, next){
+        console.log("Inside handleInsertInventoryItem");
+       
+       console.log(req.username);
+        
+        req.body['userId'] =req.username;
+          
+  db2.inventory.insert(req.body, function(err, doc) {
+    res.json(doc);
+  });
+    }
+      this.handleGetInventoryItem=function(req, res, next){
+        console.log("Inside handleGetInventoryItem");
+           console.log(req.username);
+  db2.inventory.find({ userId: req.username } ,function (err, docs) {
+    console.log(docs);
+    res.json(docs);
+  });
+    }
+    
     this.handleLoginRequest = function (req, res, next) {
         "use strict";
 
@@ -111,7 +135,7 @@ function SessionHandler(db) {
     }
     function validateReceiver(receiver_Hotmeals, receiver_Sackmeals, receiver_perishableGoods,
             receiver_dryGoods, receiver_accept_shopping_cart_food, errors) {
-       var FOODCART_RE = /^[0-9]{2}$/;
+       var FOODCART_RE = /^[0-9]{1,2}$/;
         debugger;
         errors['receiver_hot_meals_error'] = "";
         errors['receiver_sack_meals_error'] = "";
@@ -153,7 +177,7 @@ function SessionHandler(db) {
          errors['donor_require_freezer_error'] = "";
          errors['donor_deliver_local_error'] = "";
         debugger;
-        var FOODCART_RE = /^[0-9]{2}$/;
+        var FOODCART_RE = /^[0-9]{1,2}$/;
         if (donor_shopping_cart_food_daily != "") {
             if (!FOODCART_RE.test(donor_shopping_cart_food_daily)) {
                 errors['donor_shoppingcart_error'] = "Numeric values only";
@@ -329,7 +353,13 @@ function SessionHandler(db) {
                 receiver_dryGoods = ""; //re_heating_food ="", receiver_accept_shopping_cart_food =""
 
         // set these up in case we have an error case
-        var errors = {'username': username, 'email': email}
+        //change
+        var errors = {'username': username, 'email': email,'password':password, 'verify':verify,'companyName':companyName,
+                      'address':address,
+                'city':city, 'state':state, 'zipcode':zipcode, 'phoneNumber':phoneNumber, 'company_website_address':company_website_address,
+                'daily_contact_name':daily_contact_name, 'daily_email_address':daily_email_address, 'daily_phoneNumber':daily_phoneNumber
+                      
+                     }
 
          if (validateSignup(username, password, verify, email, companyName, address,
                 city, state, zipcode, phoneNumber, company_website_address,
